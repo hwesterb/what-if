@@ -1,0 +1,54 @@
+% Figure: Intrinsic Evaluation
+\begin{tikzpicture}[
+	box/.style={draw=black!70, rounded corners=3pt, minimum height=3.5cm, minimum width=6cm, align=center, font=\small, line width=0.8pt},
+	title/.style={font=\small\bfseries},
+	diffbox/.style={draw=black!60, rounded corners=3pt, text width=4.5cm, align=center, font=\footnotesize, minimum height=1.2cm, line width=0.8pt}
+	]
+	
+	% Traditional Model (Left)
+	\node[title] at (-4, -0.5) {Traditional LLM};
+	\node[box, fill=gray!10] (trad) at (-4, -2.5) {
+		\begin{tabular}{c}
+			\\[0.1cm]
+			\textbf{\large Text Generation}\\[0.1cm]
+			\Large +\\[0.1cm]
+			\textbf{\large Evaluation}\\[0.2cm]
+			\textcolor{gray}{\small\textit{(when prompted)}}\\[0.2cm]
+		\end{tabular}
+	};
+	
+	% Metacognitive Model (Right)
+	\node[title] at (4, -0.5) {Metacognitive Model};
+	\node[box, fill=purple!10] (meta) at (4, -2.5) {
+		\begin{tabular}{c}
+			\\[0.1cm]
+			\large\textbf{Text Generation}\\[0.1cm]
+			\Large\textcolor{purple!70}{⊗}\\[0.1cm]
+			\large\textbf{Evaluation}\\[0.2cm]
+			\textcolor{purple!75}{\small\textit{(deeply integrated)}}\\[0.2cm]
+		\end{tabular}
+	};
+	
+	% Central comparison
+	\node[font=\small\bfseries] at (0, -2.5) {vs.};
+	
+	% Key differences
+	\node[diffbox, fill=red!5] at (-4, -5.5) {
+		\textbf{Sequential process:}\\
+		Generate → Evaluate\\[2pt]
+		Evaluation is a separate mode
+	};
+	
+	\node[diffbox, fill=green!5] at (4, -5.5) {
+		\textbf{Integrated process:}\\
+		Generates through evaluation\\[2pt]
+		Single unified operation
+	};
+	
+	% Bottom insight
+	\node[diffbox, fill=purple!5, draw=purple!60, text width=10cm, minimum height=1cm] at (0, -7) {
+		\textbf{The Transformation:} From $P(\text{text}|\text{context})$ then $P(\text{eval}|\text{text})$\\
+		to integrated $P(\text{text}, \text{thinking}|\text{context})$
+	};
+	
+\end{tikzpicture}

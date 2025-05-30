@@ -1,0 +1,67 @@
+% Figure: The Data Generation Challenge
+\begin{tikzpicture}[
+	box/.style={draw=black!70, rounded corners=3pt, minimum height=1cm, align=center, font=\small, line width=0.8pt},
+	prompt/.style={box, fill=yellow!10, minimum width=4.5cm, align=center},
+	llm/.style={box, fill=blue!10, minimum width=3.5cm, minimum height=1.5cm},
+	output/.style={box, fill=green!10, minimum width=4.5cm, align=center},
+	arrow/.style={->, >=Stealth, thick, black!70},
+	bigarrow/.style={->, >=Stealth, very thick, purple!70, line width=1.5pt},
+	thought/.style={cloud, draw=gray!40, fill=gray!5, cloud puffs=8, cloud puff arc=120, aspect=2, inner sep=6pt, align=center}
+	]
+	
+	% Current LLM with latent capability
+	\node[llm] (current) at (-5, 0) {Current LLM\\[2pt]\footnotesize (has latent evaluation)};
+	\node[thought, above=0.3cm of current] {
+		\small\itshape Can evaluate\\when asked
+	};
+	
+	% Prompting examples
+	\node[prompt] (prompt1) at (0, 2) {
+		\footnotesize Evaluate empirical\\support
+	};
+	\node[prompt] (prompt2) at (0, 0) {
+		\footnotesize Identify reasoning\\flaws
+	};
+	\node[prompt] (prompt3) at (0, -2) {
+		\footnotesize Explain why\\profound
+	};
+	
+	% Draw arrows from LLM to prompts
+	\draw[arrow] (current.east) -- (prompt1.west);
+	\draw[arrow] (current.east) -- (prompt2.west);
+	\draw[arrow] (current.east) -- (prompt3.west);
+	
+	% Generated evaluative thinking
+	\node[output] (output1) at (5.5, 2) {
+		\footnotesize\textit{No control group}
+	};
+	\node[output] (output2) at (5.5, 0) {
+		\footnotesize\textit{Correlation not}\\
+		\footnotesize\textit{causation}
+	};
+	\node[output] (output3) at (5.5, -2) {
+		\footnotesize\textit{Unifies disparate}\\
+		\footnotesize\textit{phenomena}
+	};
+	
+	% Draw arrows from prompts to outputs
+	\draw[arrow] (prompt1.east) -- (output1.west);
+	\draw[arrow] (prompt2.east) -- (output2.west);
+	\draw[arrow] (prompt3.east) -- (output3.west);
+	
+	% Large downward arrow
+	\draw[bigarrow] (0, -3.2) -- (0, -5);
+	\node[purple!70, font=\small\bfseries] at (1.0, -4) {$\times$ billions};
+	
+	% Emergent structure box
+	\node[box, fill=purple!15, draw=purple!50, minimum width=11cm, text width=10.5cm] at (0, -7) {
+		\textbf{Emergent Evaluative Structure}\\[6pt]
+		\footnotesize
+		"AI is conscious" $\rightarrow$ "Lacks empirical evidence"\\[3pt]
+		"E=mc²" $\rightarrow$ "Empirically verified, revolutionary"\\[3pt]
+		"Quantum healing" $\rightarrow$ "Pseudoscience, no mechanism"\\[6pt]
+		\footnotesize\itshape
+		... billions more create patterns absent from original corpora
+	};
+	
+\end{tikzpicture}
